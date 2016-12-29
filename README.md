@@ -1,0 +1,1 @@
+# docker-amazonlinux-lamp
