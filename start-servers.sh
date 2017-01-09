@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 
-service httpd start
+service httpd restart
 service mysqld start
