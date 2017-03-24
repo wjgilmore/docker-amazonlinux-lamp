@@ -2,6 +2,7 @@ FROM amazonlinux:latest
 MAINTAINER Casey Jones <caseyjonesdev@gmail.com>
 
 RUN yum update -y && yum install -y \
+sudo \
 httpd24 \
 mod24_ssl \
 php70 \
@@ -27,7 +28,6 @@ php70-pdo \
 php70-pdo-dblib \
 php70-pecl-igbinary \
 php70-pecl-imagick \
-php70-pecl-memcache \
 php70-pecl-memcached \
 php70-pecl-oauth \
 php70-pecl-ssh2 \
@@ -46,15 +46,18 @@ php70-zip \
 mysql56-server \
 && yum clean all
 
-ADD create-cert.sh /tmp/create-cert.sh
-ADD server-config.sh /tmp/server-config.sh
-ADD start-servers.sh /usr/sbin/start-servers
-
 EXPOSE 80
 EXPOSE 443
 EXPOSE 3306
 
-RUN /bin/bash /tmp/create-cert.sh && \
+ADD create-user.sh /tmp/create-user.sh
+ADD create-cert.sh /tmp/create-cert.sh
+ADD server-config.sh /tmp/server-config.sh
+ADD start-servers.sh /usr/sbin/start-servers
+
+RUN /bin/bash /tmp/create-user.sh && \
+rm /tmp/create-user.sh && \
+/bin/bash /tmp/create-cert.sh && \
 rm /tmp/create-cert.sh && \
 /bin/bash /tmp/server-config.sh && \
 rm /tmp/server-config.sh
