@@ -12,7 +12,6 @@ This container is recommended for development use, to mirror or mimic developmen
 
 You will most likely want to develop on your local machine. Create your directory structure on your local machine and figure out where you want your web root to reside. Update the -v ~/www:/var/www/html with the path to your work directory.
 
-
 ```
 docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -v ~/www:/var/www/html -d cjonesdev/amazonlinux-lamp
 ```
@@ -35,4 +34,10 @@ To set a new password for root (or any other user, do the following)
 
 ```
 docker exec lamp mysql_secure_installation
+```
+
+### Login as ec2-user
+
+```
+docker exec -ti -u ec2-user lamp bash
 ```
