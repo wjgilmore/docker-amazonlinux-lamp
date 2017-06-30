@@ -42,7 +42,7 @@ By default, the root user doesn't have a password. Default access credentials ar
 Host: localhost
 User: root
 
-To set a new password for root (or any other user, do the following)
+To set a new password for root
 
 ```
 docker exec -ti --privileged lamp mysql_secure_installation
