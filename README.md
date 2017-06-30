@@ -8,11 +8,23 @@ Creates a LAMP stack image using the official Amazon Linux image for [Docker](ht
 This container is recommended for development use, to mirror or mimic development of an AWS EC2 instance running Amazon Linux. It includes MySQL 5.6, Apache 2.4 and most of the PHP 7.0.* packages.
 
 
-### Basics
+#### Build Image
+Navigate to directory containing docker file. If downloading from Docker Hub, move on to "Create Container" section.
+
+```
+docker build -t imageName .
+```
+
+
+### Create Container
 
 You will most likely want to develop on your local machine. Create your directory structure on your local machine and figure out where you want your web root to reside. Update the -v ~/www:/var/www/html with the path to your work directory.
 
 ```
+# Custom Image Build
+docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -v ~/www:/var/www/html -d imagesName
+
+# Download and Build from Docker Hub
 docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -v ~/www:/var/www/html -d cjonesdev/amazonlinux-lamp
 ```
 
@@ -33,8 +45,9 @@ User: root
 To set a new password for root (or any other user, do the following)
 
 ```
-docker exec lamp mysql_secure_installation
+docker exec -ti --privileged lamp mysql_secure_installation
 ```
+
 
 ### Login as ec2-user
 
