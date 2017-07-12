@@ -7,8 +7,8 @@ sed -i "s|#ServerName www\.example\.com:80|ServerName $HOSTNAME:80|g" /etc/httpd
 echo "NETWORKING=yes" > /etc/sysconfig/network
 
 
-chkconfig httpd on
-chkconfig mysqld on
+#chkconfig httpd on
+#chkconfig mysqld on
 
 # Make sure we don't leave behind PID
 
