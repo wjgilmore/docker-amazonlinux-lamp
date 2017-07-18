@@ -18,5 +18,8 @@ then
 	rm -f /var/lib/mysql/mysql.sock
 fi
 
+rm -f /var/run/httpd/*
+rm -f /tmp/*
+
 service httpd start
 service mysqld start
