@@ -2,7 +2,6 @@
 
 service httpd stop
 service mysqld stop
-service mongod stop
 service memcached stop
 
 if [ -e /var/run/httpd/httpd.pid ]
@@ -20,11 +19,6 @@ then
 	rm -f /var/lib/mysql/mysql.sock
 fi
 
-if [ -e /var/run/mongod/mongod.pid ]
-then
-	rm -f /var/run/mongod/mongod.pid
-fi
-
 if [ -e /var/run/memcached/memcached.pid ]
 then
 	rm -f /var/run/memcached/memcached.pid
@@ -35,5 +29,4 @@ rm -f /tmp/*
 
 service httpd start
 service mysqld start
-service mongod start
 service memcached start
