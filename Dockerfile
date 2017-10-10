@@ -1,10 +1,8 @@
 FROM amazonlinux:latest
-MAINTAINER Casey Jones <caseyjonesdev@gmail.com>
+MAINTAINER Jason Gilmore <wj@wjgilmore.com>
 
 ADD create-user.sh /tmp/create-user.sh
 ADD create-cert.sh /tmp/create-cert.sh
-ADD install-php-mongo-library.sh /tmp/install-php-mongo-library.sh
-ADD mongodb-org-3.4.repo /etc/yum.repos.d/mongodb-org-3.4.repo
 ADD server-config.sh /tmp/server-config.sh
 ADD start-servers.sh /usr/sbin/start-servers
 
@@ -71,8 +69,6 @@ RUN /bin/bash /tmp/create-user.sh && \
 rm /tmp/create-user.sh && \
 /bin/bash /tmp/create-cert.sh && \
 rm /tmp/create-cert.sh && \
-/bin/bash /tmp/install-php-mongo-library.sh && \
-rm /tmp/install-php-mongo-library.sh && \
 /bin/bash /tmp/server-config.sh && \
 rm /tmp/server-config.sh
 
