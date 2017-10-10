@@ -17,5 +17,4 @@ echo "NETWORKING=yes" > /etc/sysconfig/network
 
 /etc/init.d/httpd stop
 /etc/init.d/mysqld stop
-/etc/init.d/mongod stop
 /etc/init.d/memcached stop
