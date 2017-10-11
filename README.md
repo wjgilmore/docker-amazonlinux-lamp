@@ -34,7 +34,7 @@ docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -p 11211:11211 -v ~/
 If you want to connect to MySQL from your local machine, you will need to allow the root user or any other user access. The below snippet will allow full access to the root user. Never run this on a production server. Check out the MySQL documentation to figure out how to lock down a user based on ip and limit privileges/access. Run the below command for quick  and easy access.
 
 ```
-docker exec lamp mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;FLUSH PRIVILEGES;"
+docker exec lamp mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;FLUSH PRIVILEGES;"
 ```
 
 By default, the root user doesn't have a password. Default access credentials are as follows:
