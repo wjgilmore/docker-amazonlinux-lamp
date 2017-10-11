@@ -22,10 +22,10 @@ You will most likely want to develop on your local machine. Create your director
 
 ```
 # Custom Image Build
-docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -p 11211:11211 -p 27017:27017 -v ~/www:/var/www/html -d imagesName
+docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -p 11211:11211 -v ~/www:/var/www/html -d imagesName
 
 # Download and Build from Docker Hub
-docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -p 11211:11211 -p 27017:27017 -v ~/www:/var/www/html -d cjonesdev/amazonlinux-lamp
+docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -p 11211:11211 -p -v ~/www:/var/www/html -d cjonesdev/amazonlinux-lamp
 ```
 
 
