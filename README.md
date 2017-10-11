@@ -25,7 +25,7 @@ You will most likely want to develop on your local machine. Create your director
 docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -p 11211:11211 -v ~/www:/var/www/html -d imagesName
 
 # Download and Build from Docker Hub
-docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -p 11211:11211 -p -v ~/www:/var/www/html -d cjonesdev/amazonlinux-lamp
+docker run -ti --name lamp -p 80:80 -p 443:443 -p 3306:3306 -p 11211:11211 -p -v ~/www:/var/www/html -d wjgilmore/docker-amazonlinux-lamp-mysql57
 ```
 
 
