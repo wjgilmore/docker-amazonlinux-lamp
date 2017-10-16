@@ -57,6 +57,7 @@ mysql57-server \
 mongodb-org \
 nano \
 man \
+git \
 && yum clean all
 
 EXPOSE 80
